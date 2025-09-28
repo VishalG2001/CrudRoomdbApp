@@ -19,8 +19,6 @@ import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.ThumbUp
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -28,7 +26,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -92,7 +89,7 @@ fun ViewPostScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(
-                        onClick = {vm.onUpvote()}, modifier = Modifier.size(24.dp)
+                        onClick = { vm.onUpvote() }, modifier = Modifier.size(24.dp)
                     ) {
                         Icon(
                             imageVector = Icons.Outlined.ThumbUp,
@@ -106,7 +103,7 @@ fun ViewPostScreen(
                     Spacer(Modifier.width(16.dp))
 
                     IconButton(
-                        onClick = {vm.onDownvote()}, modifier = Modifier.size(24.dp)
+                        onClick = { vm.onDownvote() }, modifier = Modifier.size(24.dp)
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_thumb_down),
@@ -169,8 +166,9 @@ fun ViewPostScreen(
 
         if (showDeleteConfirm) {
             CommonDialog(
-                onCancel ={ showDeleteConfirm = false},
-                onProceed = { showDeleteConfirm = false
+                onCancel = { showDeleteConfirm = false },
+                onProceed = {
+                    showDeleteConfirm = false
                     vm.deletePost(
                         onSuccess = { navController.navigateUp() },
                         onError = { /* show toast */ }
@@ -268,7 +266,7 @@ fun CommonDialog(
                             }
                         }
                     }
-                Spacer(Modifier.height(20.dp))
+                    Spacer(Modifier.height(20.dp))
                 }
             }
         }
