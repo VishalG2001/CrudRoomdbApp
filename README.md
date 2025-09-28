@@ -68,7 +68,7 @@ com.crudapp
 
 Clone this repository:
 
-git clone https://github.com/<your-username>/crud-app.git
+git clone https://github.com/VishalG2001/CrudRoomdbApp.git
 
 
 Open in Android Studio (latest version recommended).
